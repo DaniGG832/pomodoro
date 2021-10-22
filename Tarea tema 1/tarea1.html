@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 1 - Cambio de imagenes</title>
+    <script defer src="js/js.js"></script>
+</head>
+
+<body>
+    <h1>Cambio de imágenes con JS</h1>
+    <h2>Pulsa la imagen para cambiarla</h2>
+    <img src="https://cdn.pixabay.com/photo/2015/04/20/13/17/work-731198_960_720.jpg" alt="Imagen código" id="miImagen" width="100%" onclick="cambiarImagen()">
+    <script>
+        function cambiarImagen() {
+            const imagen = document.getElementById("miImagen");
+            if (imagen.src.match("731198")) {
+                imagen.src = "https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_960_720.jpg";
+            } else if (imagen.src.match("849825")) {
+                imagen.src = "https://cdn.pixabay.com/photo/2015/06/24/15/45/hands-820272_960_720.jpg"
+            } else if (imagen.src.match("820272")) {
+                imagen.src = "https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849822_960_720.jpg"
+            } else if (imagen.src.match("849822")) {
+                imagen.src = "https://cdn.pixabay.com/photo/2014/05/02/21/50/laptop-336378_960_720.jpg"
+            } else if (imagen.src.match("336378")) {
+                imagen.src = "https://cdn.pixabay.com/photo/2014/05/02/21/50/blogging-336376_960_720.jpg"
+            } else {
+                imagen.src = "https://cdn.pixabay.com/photo/2015/04/20/13/17/work-731198_960_720.jpg"
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

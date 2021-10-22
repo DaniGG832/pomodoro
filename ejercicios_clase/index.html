@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        'use strict';
+
+console.log("cuenta");
+
+function pagar(par1,par2 ){
+
+   let total = par1/par2;
+
+return total;
+   
+
+}
+
+let totalcuenta = 102;
+let comensales = 6;
+let moneda = " €";
+
+console.log(pagar(totalcuenta,comensales).toFixed(2)+ moneda);
+
+
+let movil = 300 ;
+let casco= 30;
+let funda = 10;
+let descuento = 10;
+
+let total = (movil+casco+funda)/((100-descuento)/100);
+console.log(total.toFixed(2)+ moneda);
+
+
+
+    </script>
+    
+</body>
+</html>
