@@ -1,0 +1,53 @@
+#pomodoro-app{
+    background-color: aqua;
+    width: 100%;
+    height: 99vh;
+
+}
+#contenedor{
+    border:1px solid rgb(10, 6, 235);
+    border-radius :20px;
+    width:650px;
+    height: 420px;
+    margin:20px auto;
+    padding:20px;
+    text-align:center;
+    background : rgb(11, 7, 238);
+  }
+  
+ span{
+     color: aqua;
+     font-size: 10em;
+     font-family: 'Courier New', Courier, monospace;
+ }
+ 
+ div p {
+     font-size: 1.2em;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 40px;
+    text-align: left;
+    color: aqua;
+
+ }
+ #botones button{
+     font-size: 16px;
+     border-radius: 10px;
+     background-color: rgb(238, 241, 6);
+     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+     color: blue;
+
+ }
+button#pause{
+    background-color: rgb(57, 180, 57);
+}
+button#continuar{
+    background-color: rgb(226, 143, 19);
+}
+ button#stop{
+     background-color: red;
+ }
+
+ #tiempoAgotado{
+     color: red;
+     text-align: center;
+ }
