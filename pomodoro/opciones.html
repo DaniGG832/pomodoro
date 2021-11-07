@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opciones</title>
+    <link rel="stylesheet" href="opciones.css">
+</head>
+<body>
+    <div id="total">
+  <div id="contenedor">
+    <form action="">
+        <label for="tTrabajo">tiempo de trabajo:</label>
+        <input type="number" name="tTrabajo" id="TTrabajo">
+        <br>
+        <label for="ttiemcorto">Tienmpo corto: </label>
+        <input type="number" name="ttiemcorto" id="ttiemcorto">
+        <br>
+        <label for="ttiemlargo">Tiempo largo: </label>
+        <input type="number" name="ttiemlargo" id="ttiemlargo">
+        <br>
+
+        <label for="repeticiones">repeticiones del pomodoro: </label>
+        <input type="number" name="repeticiones" id="repeticiones" min="1" max="50">
+
+        
+        <br>
+        <button type="button" id="cancelar">Cancelar</button>
+        <button type="button" id="aceptar">Guardar Cambios</button>
+
+    </form>
+    <script>
+        document.getElementById("cancelar").addEventListener("click", cerrarVentana);
+        document.getElementById("aceptar").addEventListener("click", aceptar);
+        let ttrabajo = document.getElementById("TTrabajo");
+        function aceptar() {
+            document.cookie = "contador = 1";
+            document.cookie = "nombre = Dani";
+            console.log(document.cookie);
+            /* window.open("index2.html"); */
+            miventana.close();
+            window.parent.onreset();
+        }
+
+        function guardarCookie(nombre,valor) {
+        
+         } 
+
+        var miventana;
+        
+        miventana = window;
+      
+         function cerrarVentana() {
+            miventana.close();
+            console.log(1);
+         }
+
+/* document.cookie="nombre = Dani"; */
+console.log(document.cookie);
+    </script>
+  </div>
+</div>
+</body>
+</html>

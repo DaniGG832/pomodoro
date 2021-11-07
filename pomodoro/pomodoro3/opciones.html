@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opciones</title>
+    <link rel="stylesheet" href="opciones.css">
+</head>
+<body>
+    <div id="total">
+  <div id="contenedor">
+    <form action="">
+        <label for="tTrabajo">tiempo de trabajo:</label>
+        <input type="number" name="tTrabajo" id="ttrabajo">
+        <br>
+        <label for="ttiemcorto">Tienmpo corto: </label>
+        <input type="number" name="ttiemcorto" id="ttiemcorto">
+        <br>
+        <label for="ttiemlargo">Tiempo largo: </label>
+        <input type="number" name="ttiemlargo" id="ttiemlargo">
+        <br>
+
+        <label for="repeticiones">repeticiones del pomodoro: </label>
+        <input type="number" name="repeticiones" id="repeticiones" min="1" max="50">
+
+        
+        <br>
+        <button type="button" id="cancelar">Cancelar</button>
+        <button type="button" id="aceptar">Guardar Cambios</button>
+
+    </form>
+    <script>
+        document.getElementById("cancelar").addEventListener("click", cerrarVentana);
+        document.getElementById("aceptar").addEventListener("click", aceptar);
+
+        /* let ttrabajo = document.getElementById("ttrabajo"); */
+        
+        document.getElementById("ttrabajo").value = getCookie("ttrabajo");
+        document.getElementById("ttiemcorto").value = getCookie("tcorto");
+        document.getElementById("ttiemlargo").value = getCookie("tlargo");
+        document.getElementById("repeticiones").value = getCookie("repeticion");
+        
+
+        /* variables */
+
+        let tt = document.getElementById("ttrabajo");
+        let tc = document.getElementById("ttiemcorto");
+        let tl = document.getElementById("ttiemlargo");
+        let rp = document.getElementById("repeticiones");
+
+
+        function aceptar() {
+            if (tt.value == "") {
+                tt.value=1;
+            }else{
+                document.cookie = "ttrabajo ="+tt.value;
+            }
+            document.cookie = "ttrabajo ="+tt.value;
+            document.cookie = "tcorto = "+tc.value;
+            document.cookie = "tlargo = "+tl.value;
+            document.cookie = "repeticion = "+rp.value;
+
+            console.log(document.cookie);
+            miventana.close();
+            opener.window.location.href = "index2.html";
+            window.parent.opener.location.reload();
+        }
+
+        function guardarCookie(nombre,valor) {
+        
+         } 
+
+        var miventana;
+        
+        miventana = window;
+      
+         function cerrarVentana() {
+            miventana.close();
+            console.log(1);
+         }
+
+
+console.log(document.cookie);
+/* comprobar valor cookies */
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+    </script>
+  </div>
+</div>
+</body>
+</html>
