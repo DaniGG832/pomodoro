@@ -51,10 +51,17 @@
 
 
         function aceptar() {
-            if (tt.value == "") {
+            if (tt.value =="") {
                 tt.value=1;
-            }else{
-                document.cookie = "ttrabajo ="+tt.value;
+            }
+            if (tc.value =="") {
+                tc.value=1;
+            }
+            if (tl.value =="") {
+                tl.value=1;
+            }
+            if (rp.value =="") {
+                rp.value=1;
             }
             document.cookie = "ttrabajo ="+tt.value;
             document.cookie = "tcorto = "+tc.value;
