@@ -1,4 +1,10 @@
 
+if(document.cookie==""){
+    document.cookie = "ttrabajo =25";
+    document.cookie = "tcorto =5";
+    document.cookie = "tlargo = 15";
+    document.cookie = "repeticion =1"; 
+}
 /* Eventos */
 
 
