@@ -1,10 +1,12 @@
 
 /* Eventos */
+
+
 document.getElementById("trabajo").addEventListener("click",trabajo);
 document.getElementById("desCorto").addEventListener("click",descCorto);
 document.getElementById("descLargo").addEventListener("click",descLargo);
 document.getElementById("empezar").addEventListener("click",cuentaAtras);
-document.getElementById("empezar").addEventListener("click",restar);
+document.getElementById("pagina").addEventListener("mousemove",cambios);
 document.getElementById("pause").addEventListener("click",pause);
 document.getElementById("stop").addEventListener("click",stop);
 document.getElementById("opciones").addEventListener("click",nuevaVentana);
@@ -12,28 +14,40 @@ document.getElementById("opciones").addEventListener("click",nuevaVentana);
 
 /* segundos por defecto */
 document.getElementById("segundos").innerHTML = "00";
-
+document.getElementById("minutos").innerHTML = getCookie("ttrabajo");
 let ttrab = getCookie("ttrabajo");
-let tdcorto = getCookie("tcorto");;
-let tdlargo = getCookie("tlargo");;
+let tdcorto = getCookie("tcorto");
+let tdlargo = getCookie("tlargo");
+let contador = getCookie("repeticiones");
 let sw = true;
 let ct = true;
+let rest = false;
+let opc = true;
 
-/* restar */
-function restar() {
+function cambios() {
     
-    console.log(1254);
-    
+    if(rest==true){
+        location.reload();
+        console.log(111);
+        trabajo();
+
+    }
 }
+
+
 
 
 /* abrir ventana de configuracion */
 let ventanaConfig;
     function nuevaVentana() {
-
-       ventanaConfig= window.open("opciones.html","Configuracion","_blank, width=800px, height=700px, left=250");
-            
+        if (opc == true) {
+            ventanaConfig= window.open("opciones.html","Configuracion","_blank, width=800px, height=700px, left=250");
+       rest = true;
+        }
+       
     }
+    
+
 
     /* Boton trabajo, mostrara la pantalla trabajo */
 function trabajo() {
@@ -81,6 +95,7 @@ function descLargo() {
 let intervalo;
 let intervaloMinutos;
 function cuentaAtras() {
+    opc= false;
     colorDesctivarBotones();
     quitaracabado();
 
@@ -90,13 +105,15 @@ function cuentaAtras() {
          valor2--;
          document.getElementById("minutos").innerHTML= valor2;
         intervalo = setInterval(segundero,10);
-        intervaloMinutos = setInterval(cAtras,10)
+        intervaloMinutos = setInterval(cAtras,10);
         
     }
     sw = false;
     ct = false;
     
 }
+
+
 /* pausar el reloj */
 function pause() {
     clearInterval(intervalo);
@@ -107,6 +124,7 @@ function pause() {
 
 /* funcion stop, vuelve todo por defecto */
 function stop() {
+
     document.getElementById("minutos").innerHTML = ttrab;
     document.getElementById("segundos").innerHTML = "00"; 
     clearInterval(intervalo);
@@ -114,9 +132,11 @@ function stop() {
     segundos = 59;
     sw = true;
     ct = true;
+    opc= true;
     colorTrabajo();
     document.getElementById("tiempoAgotado").innerHTML = "";
     coloractivarBotones();
+    /* rest = true; */
 }
 
 /* funcion para la cuenta atras de los segundos */
@@ -133,12 +153,28 @@ function segundero() {
         segundos = 59;
     }
 }
+function cAtras2() {
+   
+    valor = document.getElementById("minutos").innerHTML;
+   
+   if (segundos==0 ) {
+       valor--;
+       document.getElementById("minutos").innerHTML = valor;
+   }
+   if (valor<0 ) {
+        descCorto();
+       /* clearInterval(intervalo)
+       clearInterval(intervaloMinutos) */
+       console.log(25);
+   }
+}
 
 /* funcion del intervalo para cuenta atras */
 let valor;
 function cAtras() {
+   
      valor = document.getElementById("minutos").innerHTML;
-     console.log("valor ="+valor);
+    
     if (segundos==0 ) {
         valor--;
         document.getElementById("minutos").innerHTML = valor;
@@ -152,9 +188,10 @@ function cAtras() {
         document.getElementById("minutos").innerHTML = "0";
         segundos = 59;
         tTrab= 24;
+        opc = true;
         ct = true;
         sw = true;
-    
+       /*  trabajo(); */
 
     }
 
@@ -209,20 +246,24 @@ function colorTlargo() {
 function colorDesctivarBotones() {
     document.getElementById("trabajo").style.backgroundColor = "#7A807B";
     document.getElementById("desCorto").style.backgroundColor = "#7A807B";
-    document.getElementById("descLargo").style.backgroundColor = "#7A807B";    
+    document.getElementById("descLargo").style.backgroundColor = "#7A807B";
+    
+    document.getElementById("opciones").style.backgroundColor = "#7A807B";   
 }
 
 function coloractivarBotones() {
     document.getElementById("trabajo").style.backgroundColor = "rgb(238, 241, 6)";
     document.getElementById("desCorto").style.backgroundColor = "rgb(238, 241, 6)";
-    document.getElementById("descLargo").style.backgroundColor = "rgb(238, 241, 6)";    
+    document.getElementById("descLargo").style.backgroundColor = "rgb(238, 241, 6)";
+    
+    document.getElementById("opciones").style.backgroundColor = "dodgerblue";  
 }
 
 /* funcion para quitar letrero de acabado */
 function quitaracabado() {
     document.getElementById("tiempoAgotado").innerHTML = "";
 }
-let pomodoro = 3;
+
 
 /* comprobar valor cookies */
 function getCookie(cname) {
